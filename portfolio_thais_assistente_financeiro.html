@@ -1,0 +1,921 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thais de Jesus Souza | Portfólio Financeiro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #c9a227;
+            --accent: #2d5a87;
+            --light: #f8f9fa;
+            --dark: #0f1f33;
+            --text: #333;
+            --text-light: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--secondary), #e8d5a3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            border-left-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .skill-item h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .skill-level {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--secondary), var(--primary));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--secondary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .company {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .timeline-item .period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .timeline-item li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .timeline-item li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        /* Dashboard Demo */
+        .dashboard-demo {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-pago {
+            background: #d4edda;
+            color: #155724;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .status-pendente {
+            background: #fff3cd;
+            color: #856404;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Pricing Calculator */
+        .calculator {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .result-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), #e8d5a3);
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(201,162,39,0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .card { padding: 25px; }
+            nav ul { gap: 15px; }
+        }
+
+        /* Animation */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(201,162,39,0.1) 0%, rgba(201,162,39,0.05) 100%);
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Thais de Jesus Souza</h1>
+        <p class="subtitle">Assistente Financeiro</p>
+        <div class="contact-info">
+            📧 thais_dejesussouza@hotmail.com | 📱 (21) 98022-9398 | 📍 Rio de Janeiro - RJ
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#experiencia">Experiência</a></li>
+            <li><a href="#demonstracoes">Demonstrações</a></li>
+            <li><a href="#formacao">Formação</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Sobre -->
+        <section id="sobre" class="card fade-in">
+            <h2><span class="icon">👩‍💼</span> Sobre Mim</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text);">
+                Profissional com <strong>6+ anos de experiência</strong> em rotinas administrativas e financeiras, 
+                incluindo <strong>3 anos como Assistente Administrativo-Financeiro</strong> em papelaria desde sua inauguração. 
+                Especialista em estruturação de processos operacionais, implementação de ERP (Bling), controle de fluxo de caixa, 
+                contas a pagar/receber e emissão de notas fiscais.
+            </p>
+
+            <div class="highlight-box">
+                <h4>🎯 Diferencial</h4>
+                <p>Vivência prática na <strong>estruturação financeira de uma empresa desde o zero</strong>, 
+                incluindo implementação de sistema ERP, cadastro de produtos, processo de compras, 
+                precificação e integração com e-commerce (Mercado Livre).</p>
+            </div>
+        </section>
+
+        <!-- Habilidades -->
+        <section id="habilidades" class="card fade-in">
+            <h2><span class="icon">🛠️</span> Habilidades Técnicas</h2>
+
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h4>ERP Bling</h4>
+                    <p>Cadastro, notas fiscais, integrações</p>
+                    <span class="skill-level">Avançado</span>
+                </div>
+
+                <div class="skill-item">
+                    <h4>Contas a Pagar/Receber</h4>
+                    <p>Certificado Edune + 3 anos prática</p>
+                    <span class="skill-level">Avançado</span>
+                </div>
+
+                <div class="skill-item">
+                    <h4>Fluxo de Caixa</h4>
+                    <p>Controle diário e mensal</p>
+                    <span class="skill-level">Avançado</span>
+                </div>
+
+                <div class="skill-item">
+                    <h4>Emissão de NF-e</h4>
+                    <p>Emissão e lançamento no sistema</p>
+                    <span class="skill-level">Avançado</span>
+                </div>
+
+                <div class="skill-item">
+                    <h4>Excel Intermediário</h4>
+                    <p>Fórmulas, tabelas dinâmicas básicas</p>
+                    <span class="skill-level">Em desenvolvimento</span>
+                </div>
+
+                <div class="skill-item">
+                    <h4>Precificação</h4>
+                    <p>Markup e análise de lucratividade</p>
+                    <span class="skill-level">Intermediário</span>
+                </div>
+
+                <div class="skill-item">
+                    <h4>Negociação com Fornecedores</h4>
+                    <p>Compras e reposição de estoque</p>
+                    <span class="skill-level">Avançado</span>
+                </div>
+
+                <div class="skill-item">
+                    <h4>Integração E-commerce</h4>
+                    <p>Mercado Livre e vendas online</p>
+                    <span class="skill-level">Intermediário</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiência -->
+        <section id="experiencia" class="card fade-in">
+            <h2><span class="icon">💼</span> Experiência Profissional</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Assistente Administrativo-Financeiro</h3>
+                    <div class="company">Gibi Papelaria e Presentes Ltda</div>
+                    <div class="period">Agosto/2022 – Outubro/2025 (3 anos)</div>
+                    <ul>
+                        <li><strong>Estruturação operacional desde a inauguração:</strong> Implementação de cadastro de produtos, clientes e fornecedores no ERP Bling</li>
+                        <li><strong>Processo de compras:</strong> Negociação com fornecedores e aquisições garantindo estoque inicial e reposição</li>
+                        <li><strong>Emissão e lançamento de NF-e:</strong> Controle de notas fiscais no sistema desde o início das operações</li>
+                        <li><strong>Análise de precificação:</strong> Implementação de índice de lucratividade de 5x a 6x sobre custo mediante pesquisa de mercado</li>
+                        <li><strong>Expansão de canais:</strong> Integração do ERP com Mercado Livre, criando operação online</li>
+                        <li><strong>Controle financeiro:</strong> Organização de fluxo de caixa, contas a pagar/receber e acompanhamento de despesas</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Atendente</h3>
+                    <div class="company">Nercessian Comércio de Material Escolar Ltda</div>
+                    <div class="period">Junho/2014 – Dezembro/2020 (6 anos)</div>
+                    <ul>
+                        <li>Operação de caixa: abertura, fechamento e conferência de valores</li>
+                        <li>Atendimento ao cliente e desenvolvimento de comunicação interpessoal</li>
+                        <li>Organização operacional: reposição de mercadorias e contagem de estoque</li>
+                        <li>Criação de catálogo virtual (2020) para vendas online durante pandemia</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demonstrações Práticas -->
+        <section id="demonstracoes" class="card fade-in">
+            <h2><span class="icon">📊</span> Demonstrações Práticas</h2>
+            <p style="margin-bottom: 20px; color: var(--text-light);">
+                Exemplos de trabalhos realizados baseados em experiência real como Assistente Financeiro
+            </p>
+
+            <!-- Dashboard de Controle -->
+            <h3 style="color: var(--primary); margin: 30px 0 15px 0;">1. Dashboard de Controle Financeiro Simplificado</h3>
+            <div class="dashboard-demo">
+                <div class="dashboard-grid">
+                    <div class="metric-card">
+                        <span class="metric-value">R$ 12.450</span>
+                        <div class="metric-label">Contas a Receber</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">R$ 8.320</span>
+                        <div class="metric-label">Contas a Pagar</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">R$ 4.130</span>
+                        <div class="metric-label">Saldo Projetado</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">15</span>
+                        <div class="metric-label">NF-e Emitidas (Mês)</div>
+                    </div>
+                </div>
+
+                <h4 style="margin-bottom: 15px; color: var(--secondary);">Controle de Contas a Pagar/Receber</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Descrição</th>
+                                <th>Vencimento</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🔴 Pagar</td>
+                                <td>Fornecedor Papelaria ABC</td>
+                                <td>25/03/2026</td>
+                                <td>R$ 2.500,00</td>
+                                <td><span class="status-pendente">Pendente</span></td>
+                            </tr>
+                            <tr>
+                                <td>🔴 Pagar</td>
+                                <td>Aluguel Loja</td>
+                                <td>10/03/2026</td>
+                                <td>R$ 3.200,00</td>
+                                <td><span class="status-pago">Pago</span></td>
+                            </tr>
+                            <tr>
+                                <td>🟢 Receber</td>
+                                <td>Cliente Final - Pedido #1234</td>
+                                <td>20/03/2026</td>
+                                <td>R$ 1.850,00</td>
+                                <td><span class="status-pendente">Pendente</span></td>
+                            </tr>
+                            <tr>
+                                <td>🟢 Receber</td>
+                                <td>Mercado Livre - Repasse</td>
+                                <td>15/03/2026</td>
+                                <td>R$ 4.600,00</td>
+                                <td><span class="status-pago">Recebido</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Calculadora de Precificação -->
+            <h3 style="color: var(--primary); margin: 30px 0 15px 0;">2. Calculadora de Precificação (Markup)</h3>
+            <div class="calculator">
+                <p style="margin-bottom: 20px; color: var(--text-light);">
+                    Ferramenta utilizada na Gibi Papelaria para definir preços de venda com base no custo e margem desejada.
+                </p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="input-group">
+                        <label>Custo do Produto (R$)</label>
+                        <input type="number" id="custo" placeholder="Ex: 10.00" value="10.00">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Markup Desejado (vezes)</label>
+                        <input type="number" id="markup" placeholder="Ex: 5" value="5">
+                    </div>
+                </div>
+
+                <button class="btn" onclick="calcularPreco()" style="margin-top: 10px;">Calcular Preço de Venda</button>
+
+                <div class="result-box" id="resultado" style="display: none;">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center;">
+                        <div>
+                            <div style="font-size: 0.9rem; color: var(--text-light);">Custo</div>
+                            <div class="result-value" id="resCusto">R$ 10,00</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.9rem; color: var(--text-light);">Preço de Venda</div>
+                            <div class="result-value" id="resVenda" style="color: var(--secondary);">R$ 50,00</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.9rem; color: var(--text-light);">Lucro</div>
+                            <div class="result-value" id="resLucro" style="color: #28a745;">R$ 40,00</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
+                        <strong>Margem de Lucro: <span id="resMargem" style="color: var(--primary);">80%</span></strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conciliação Bancária -->
+            <h3 style="color: var(--primary); margin: 30px 0 15px 0;">3. Modelo de Conciliação Bancária Simplificada</h3>
+            <div class="highlight-box">
+                <h4>Processo Realizado na Experiência Profissional</h4>
+                <p style="margin-bottom: 15px;">Rotina diária de conferência entre extrato bancário e lançamentos internos:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Download do extrato bancário (CAIXA/BB)</li>
+                    <li>Conferência de valores de vendas do dia anterior</li>
+                    <li>Identificação de taxas de cartão e repasses do Mercado Livre</li>
+                    <li>Lançamento de despesas automáticas (aluguel, fornecedores)</li>
+                    <li>Identificação de divergências e ajustes</li>
+                </ul>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrição Extrato</th>
+                            <th>Descrição Interna</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>18/03</td>
+                            <td>REPASSE ML</td>
+                            <td>Venda Online - Pedido #1230</td>
+                            <td>R$ 287,50</td>
+                            <td>✅ OK</td>
+                        </tr>
+                        <tr>
+                            <td>18/03</td>
+                            <td>TARIFA PACOTE</td>
+                            <td>Tarifa Bancária</td>
+                            <td>R$ 25,00</td>
+                            <td>✅ OK</td>
+                        </tr>
+                        <tr>
+                            <td>18/03</td>
+                            <td>TRANSF ENVIADA</td>
+                            <td>Pagamento Fornecedor X</td>
+                            <td>R$ 1.200,00</td>
+                            <td>✅ OK</td>
+                        </tr>
+                        <tr style="background: #fff3cd;">
+                            <td>18/03</td>
+                            <td>DEPOSITO DINHEIRO</td>
+                            <td>—</td>
+                            <td>R$ 450,00</td>
+                            <td>⚠️ Verificar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Formação -->
+        <section id="formacao" class="card fade-in">
+            <h2><span class="icon">🎓</span> Formação e Cursos</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Graduação em Gestão Financeira</h3>
+                    <div class="company">Universidade Veiga de Almeida (UVA)</div>
+                    <div class="period">Outubro/2024 – Dezembro/2026 (Em andamento)</div>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Excel Avançado</h3>
+                    <div class="company">Udemy</div>
+                    <div class="period">Em andamento</div>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Contas a Pagar e Receber</h3>
+                    <div class="company">Edune</div>
+                    <div class="period">Finalizado em 2022</div>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Rotinas Administrativas</h3>
+                    <div class="company">Edune</div>
+                    <div class="period">Finalizado em 2022</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competências -->
+        <section class="card fade-in">
+            <h2><span class="icon">⭐</span> Competências Comportamentais</h2>
+
+            <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="skill-item">
+                    <h4>🚀 Proatividade</h4>
+                    <p>Estruturação de processos desde o zero</p>
+                </div>
+
+                <div class="skill-item">
+                    <h4>🧩 Resolução de Problemas</h4>
+                    <p>Adaptação a novos desafios operacionais</p>
+                </div>
+
+                <div class="skill-item">
+                    <h4>💬 Comunicação Interpessoal</h4>
+                    <p>Negociação com fornecedores e atendimento</p>
+                </div>
+
+                <div class="skill-item">
+                    <h4>🔄 Adaptabilidade</h4>
+                    <p>Transição físico/digital durante pandemia</p>
+                </div>
+
+                <div class="skill-item">
+                    <h4>🤝 Trabalho em Equipe</h4>
+                    <p>Integração entre áreas operacionais</p>
+                </div>
+
+                <div class="skill-item">
+                    <h4>📚 Aprendizado Contínuo</h4>
+                    <p>Graduação e cursos de aperfeiçoamento</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contato">
+        <div class="footer-content">
+            <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Vamos conversar?</h2>
+            <p style="margin-bottom: 20px; opacity: 0.9;">
+                Estou em busca de oportunidades como <strong>Assistente Financeiro</strong> para aplicar minha 
+                experiência prática em rotinas operacionais e continuar desenvolvendo minhas habilidades 
+                na área financeira.
+            </p>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px; margin: 20px 0;">
+                <p style="margin: 5px 0;">📧 thais_dejesussouza@hotmail.com</p>
+                <p style="margin: 5px 0;">📱 (21) 98022-9398</p>
+                <p style="margin: 5px 0;">📍 Rio de Janeiro - RJ (Anil, Jacarepaguá)</p>
+            </div>
+
+            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">
+                Portfólio criado em Março/2026 | Última atualização: Graduação em andamento
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function calcularPreco() {
+            const custo = parseFloat(document.getElementById('custo').value) || 0;
+            const markup = parseFloat(document.getElementById('markup').value) || 1;
+
+            const precoVenda = custo * markup;
+            const lucro = precoVenda - custo;
+            const margem = ((lucro / precoVenda) * 100).toFixed(0);
+
+            document.getElementById('resCusto').textContent = 'R$ ' + custo.toFixed(2).replace('.', ',');
+            document.getElementById('resVenda').textContent = 'R$ ' + precoVenda.toFixed(2).replace('.', ',');
+            document.getElementById('resLucro').textContent = 'R$ ' + lucro.toFixed(2).replace('.', ',');
+            document.getElementById('resMargem').textContent = margem + '%';
+
+            document.getElementById('resultado').style.display = 'block';
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Animação ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
